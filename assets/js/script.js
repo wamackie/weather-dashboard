@@ -36,3 +36,5 @@ function getApi(url) {
 
 
 getApi(apiUrl)
+
+//document.querySelectorAll("[data-foo='1']")
