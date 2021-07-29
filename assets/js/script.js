@@ -1,6 +1,6 @@
 var apiKey = '871609c38c37e30a4a9d514a96883f59'
-var lat = 40.71
-var lon = 74.01
+var lat = 74.01
+var lon = 40.71
 var apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`
 var currentTempEl = document.getElementById('current-temp')
 var currentWindEl = document.getElementById('current-wind')
@@ -27,19 +27,19 @@ function getApi(url) {
         console.log(data.current.wind_speed);
         console.log(data.current.uvi);
 
-        // var currentTemp = data.current.//temperature
-        // currentTempEl.textContent = currentTemp
+        var currentTemp = data.current.temp
+        currentTempEl.textContent = currentTemp
 
-        // var currentWind = data.current.//wind
-        // currentWindEl.textContent = currentWind
+        var currentWind = data.current.wind_speed
+        currentWindEl.textContent = currentWind
 
-        // var currentHum = data.current.//humidity
-        // currentHumEl.textContent = currentHum
+        var currentHum = data.current.humidity
+        currentHumEl.textContent = currentHum
 
         var currentUvi = data.current.uvi;
         currentUviEl.textContent = currentUvi
 
-        for (i = 0; i < data.daily.length; i++) {
+        for (i = 0; i < 5; i++) {
             console.log(data.daily[i])
             var cardEl = document.getElementById(`data-id-${i}`)
             cardEl.innerHTML = data.daily[i].temp
@@ -52,3 +52,4 @@ function getApi(url) {
 getApi(apiUrl)
 
 //document.querySelectorAll("[data-foo='1']")
+//data.daily.length
