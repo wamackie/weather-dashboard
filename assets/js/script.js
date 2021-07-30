@@ -54,23 +54,12 @@ function getApi(url) {
             // give the new element content
             cardEl.innerHTML = `
             <h2>This is the day</h2>
-            <span id='weekly-temperature'>Here's the temperature</span>
-            <span id='weekly-wind-speed'>Here's the wind speed</span>
-            <span id='weekly-humidity'>Here's the humidity</span>
-            <span id='weekly-uvi'>Here's the uvi</span>
+            <span>${data.daily[i].temp.day}</span>
+            <span>${data.daily[i].wind_speed}</span>
+            <span>${data.daily[i].humidity}</span>
+            <span>${data.daily[i].uvi}</span>
             <img src="the address of the weather img" />
             `;
-            var weeklyTemp = data.current.temp
-            weeklyTempEl.textContent = weeklyTemp
-
-            var weeklyWind = data.current.wind_speed
-            weeklyWindEl.textContent = weeklyWind
-
-            var weeklyHum = data.current.humidity
-            weeklyHumEl.textContent = weeklyHum
-
-            var weeklyUvi = data.current.uvi;
-            weeklyUviEl.textContent = weeklyUvi
 
             // put the new element on the page
             weeklyWeatherContainer.append(cardEl)
@@ -90,3 +79,14 @@ getApi(apiUrl)
 // cardEl.innerHTML = data.daily[i].wind_speed
 // cardEl.innerHTML = data.daily[i].humidity
 // cardEl.innerHTML = data.daily[i].uvi
+// var weeklyTemp = data.current.temp
+// weeklyTempEl.textContent = weeklyTemp
+
+// var weeklyWind = data.current.wind_speed
+// weeklyWindEl.textContent = weeklyWind
+
+// var weeklyHum = data.current.humidity
+// weeklyHumEl.textContent = weeklyHum
+
+// var weeklyUvi = data.current.uvi;
+// weeklyUviEl.textContent = weeklyUvi
