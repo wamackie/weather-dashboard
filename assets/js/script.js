@@ -7,6 +7,8 @@ var currentWindEl = document.getElementById('current-wind')
 var currentHumEl = document.getElementById('current-humidity')
 var currentUviEl = document.getElementById('current-uvi')
 
+var weeklyWeatherContainer = document.getElementById('weekly-weather')
+
 function getApi(url) {
     fetch(url)
       .then(function (response) {
@@ -41,8 +43,12 @@ function getApi(url) {
 
         for (i = 0; i < 5; i++) {
             console.log(data.daily[i])
-            var cardEl = document.getElementById(`data-id-${i}`)
-            cardEl.innerHTML = data.daily[i].temp
+            // create new element
+            var cardEl = document.createElement('div')
+            // give the new element content
+            cardEl.innerHTML = '???'
+            // put the new element on the page
+            weeklyWeatherContainer.append(cardEl)
         }
       });
   }
@@ -53,3 +59,9 @@ getApi(apiUrl)
 
 //document.querySelectorAll("[data-foo='1']")
 //data.daily.length
+//var cardEl = document.getElementById(`data-id-${i}`)
+
+//cardEl.innerHTML = data.daily[i].temp
+// cardEl.innerHTML = data.daily[i].wind_speed
+// cardEl.innerHTML = data.daily[i].humidity
+// cardEl.innerHTML = data.daily[i].uvi
