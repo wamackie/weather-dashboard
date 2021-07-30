@@ -2,10 +2,16 @@ var apiKey = '871609c38c37e30a4a9d514a96883f59'
 var lat = 74.01
 var lon = 40.71
 var apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`
+//current day DOM elements
 var currentTempEl = document.getElementById('current-temp')
 var currentWindEl = document.getElementById('current-wind')
 var currentHumEl = document.getElementById('current-humidity')
 var currentUviEl = document.getElementById('current-uvi')
+//weekly forecast DOM elements
+var weeklyTempEl = document.getElementById('weekly-temperature')
+var weeklyWindEl = document.getElementById('current-wind')
+var weeklyHumEl = document.getElementById('current-humidity')
+var weeklyUviEl = document.getElementById('current-uvi')
 
 var weeklyWeatherContainer = document.getElementById('weekly-weather')
 
@@ -46,7 +52,26 @@ function getApi(url) {
             // create new element
             var cardEl = document.createElement('div')
             // give the new element content
-            cardEl.innerHTML = '???'
+            cardEl.innerHTML = `
+            <h2>This is the day</h2>
+            <span id='weekly-temperature'>Here's the temperature</span>
+            <span id='weekly-wind-speed'>Here's the wind speed</span>
+            <span id='weekly-humidity'>Here's the humidity</span>
+            <span id='weekly-uvi'>Here's the uvi</span>
+            <img src="the address of the weather img" />
+            `;
+            var weeklyTemp = data.current.temp
+            weeklyTempEl.textContent = weeklyTemp
+
+            var weeklyWind = data.current.wind_speed
+            weeklyWindEl.textContent = weeklyWind
+
+            var weeklyHum = data.current.humidity
+            weeklyHumEl.textContent = weeklyHum
+
+            var weeklyUvi = data.current.uvi;
+            weeklyUviEl.textContent = weeklyUvi
+
             // put the new element on the page
             weeklyWeatherContainer.append(cardEl)
         }
