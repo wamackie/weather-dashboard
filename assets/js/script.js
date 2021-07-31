@@ -38,10 +38,13 @@ function getApi() {
 
         var currentHum = data.main.humidity
         currentHumEl.textContent = currentHum
-
+        
         var currentUvi = data.current.uvi;
         currentUviEl.textContent = currentUvi
-
+        
+        secondCall(lat,lon){
+          fetch`https:api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`
+        }
         var lat = data.coord.lat
         var lon = data.coord.lon
 
@@ -64,11 +67,6 @@ function getApi() {
             weeklyWeatherContainer.append(cardEl)
         }
       });
-  }
-
-function secondCall(lat,lon) {
-  var apiUrl2 = `https:api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`
-    
   }
 
 // function getInputValue() {
