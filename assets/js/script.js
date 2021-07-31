@@ -39,14 +39,25 @@ function getApi() {
         var currentHum = data.main.humidity
         currentHumEl.textContent = currentHum
         
-        var currentUvi = data.current.uvi;
-        currentUviEl.textContent = currentUvi
-        
-        secondCall(lat,lon){
+        // var currentUvi = data.current.uvi;
+        // currentUviEl.textContent = currentUvi
+
+        function secondCall(lat,lon){
           fetch`https:api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`
+          var lat = data.coord.lat
+          var lon = data.coord.lon
+          //var uvi = data.
+          console.log(lat,lon)
         }
-        var lat = data.coord.lat
-        var lon = data.coord.lon
+        secondCall()
+
+        var currentLat = lat
+        currentLatEl.textContent = currentLat
+
+        var currentLon = lon
+        currentLonEl.textContent = currentLon
+
+        console.log(data)
 
         for (i = 0; i < 5; i++) {
 
@@ -74,7 +85,6 @@ function getApi() {
 // }
 
 getApi()
-secondCall(lat,lon)
 
 //document.querySelectorAll("[data-foo='1']")
 //data.daily.length
