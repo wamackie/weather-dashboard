@@ -27,7 +27,6 @@ function getApi() {
         return response.json();
       })
       .then(function (data) {
-        // Make sure to look at the response in the console and read how 404 response is structured.
         console.log(data);
 
         var currentTemp = data.main.temp
@@ -43,19 +42,25 @@ function getApi() {
         // currentUviEl.textContent = currentUvi
 
         function secondCall(lat,lon){
-          fetch`https:api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`
           var lat = data.coord.lat
           var lon = data.coord.lon
-          //var uvi = data.
+          var apiUrl2 = `https:api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`
+            fetch(apiUrl2)
+              .then(function (data) {
+                console.log(data);
+                var currentUvi = data.current.uvi
+                currentUviEl.textContent = currentUvi
+              //var uvi = data.
           console.log(lat,lon)
+        })
         }
         secondCall()
 
-        var currentLat = lat
-        currentLatEl.textContent = currentLat
+        // var currentLat = lat
+        // currentLatEl.textContent = currentLat
 
-        var currentLon = lon
-        currentLonEl.textContent = currentLon
+        // var currentLon = lon
+        // currentLonEl.textContent = currentLon
 
         console.log(data)
 
@@ -70,7 +75,7 @@ function getApi() {
             <span>${data.daily[i].temp.day}</span>
             <span>${data.daily[i].wind_speed}</span>
             <span>${data.daily[i].humidity}</span>
-            <span>${data.daily[i].uvi}</span>
+            <span>${data.current[i].uvi}</span>
             <img src="the address of the weather img" />
             `;
 
