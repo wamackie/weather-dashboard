@@ -60,6 +60,9 @@ function getApi() {
                 var currentUvi = data.current.uvi
                 currentUviEl.textContent = currentUvi
 
+                var dailyUvi = data.current[i].uvi
+                dailyUviEl.textContent = dailyUvi
+
               //var uvi = data.
           console.log(lat,lon)
         })
