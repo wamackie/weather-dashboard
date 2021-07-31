@@ -72,41 +72,10 @@ function getApi() {
 
   function secondCall(lat,lon) {
     var apiUrl2 = `https:api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`
-      fetch(apiUrl2)
-        .then(function (response) {
-          console.log(response.status);
-          //  Conditional for the the response.status.
-          if (response.status !== 200) {
-            // Place the response.status on the page.
-            console.log(response.status)
-          }
-          return response.json();
-        })
-        .then(function (data) {
-          // Make sure to look at the response in the console and read how 404 response is structured.
-          console.log(data);
-  
-          for (i = 0; i < 5; i++) {
-  
-              console.log(data.daily[i])
-              // create new element
-              var cardEl = document.createElement('div')
-              // give the new element content
-              cardEl.innerHTML = `
-              <h2>This is the day</h2>
-              <span>${data.daily[i].temp.day}</span>
-              <span>${data.daily[i].wind_speed}</span>
-              <span>${data.daily[i].humidity}</span>
-              <span>${data.daily[i].uvi}</span>
-              <img src="the address of the weather img" />
-              `;
-  
-              // put the new element on the page
-              weeklyWeatherContainer.append(cardEl)
-          }
-        });
-    }
+    //function actions here
 
+    
+  }
 getApi()
 secondCall(lat,lon)
 
@@ -129,3 +98,37 @@ secondCall(lat,lon)
 
 // var weeklyUvi = data.current.uvi;
 // weeklyUviEl.textContent = weeklyUvi
+
+// .then(function (response) {
+//   console.log(response.status);
+//   //  Conditional for the the response.status.
+//   if (response.status !== 200) {
+//     // Place the response.status on the page.
+//     console.log(response.status)
+//   }
+//   return response.json();
+// })
+// .then(function (data) {
+//   // Make sure to look at the response in the console and read how 404 response is structured.
+//   console.log(data);
+
+//   for (i = 0; i < 5; i++) {
+
+//       console.log(data.daily[i])
+//       // create new element
+//       var cardEl = document.createElement('div')
+//       // give the new element content
+//       cardEl.innerHTML = `
+//       <h2>This is the day</h2>
+//       <span>${data.daily[i].temp.day}</span>
+//       <span>${data.daily[i].wind_speed}</span>
+//       <span>${data.daily[i].humidity}</span>
+//       <span>${data.daily[i].uvi}</span>
+//       <img src="the address of the weather img" />
+//       `;
+
+//       // put the new element on the page
+//       weeklyWeatherContainer.append(cardEl)
+//   }
+// });
+// }
