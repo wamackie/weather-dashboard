@@ -1,5 +1,6 @@
 var apiKey = '871609c38c37e30a4a9d514a96883f59'
 var city = 'portland'
+var input = document.getElementById('myInput')
 //current day DOM elements
 var currentTempEl = document.getElementById('current-temp')
 var currentWindEl = document.getElementById('current-wind')
@@ -28,11 +29,6 @@ function getApi() {
       .then(function (data) {
         // Make sure to look at the response in the console and read how 404 response is structured.
         console.log(data);
-        // console.log(data.current);
-        // console.log(data.current.temp);
-        // console.log(data.current.humidity);
-        // console.log(data.current.wind_speed);
-        // console.log(data.current.uvi);
 
         var currentTemp = data.main.temp
         currentTempEl.textContent = currentTemp
@@ -70,12 +66,15 @@ function getApi() {
       });
   }
 
-  function secondCall(lat,lon) {
-    var apiUrl2 = `https:api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`
-    //function actions here
-
+function secondCall(lat,lon) {
+  var apiUrl2 = `https:api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`
     
   }
+
+// function getInputValue() {
+//   city.textContent = input
+// }
+
 getApi()
 secondCall(lat,lon)
 
