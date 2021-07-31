@@ -1,6 +1,7 @@
 var apiKey = '871609c38c37e30a4a9d514a96883f59'
 var city = 'portland'
 var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`
+var apiUrl2 = `https:api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`
 //current day DOM elements
 var currentTempEl = document.getElementById('current-temp')
 var currentWindEl = document.getElementById('current-wind')
@@ -45,6 +46,9 @@ function getApi(url) {
 
         var currentUvi = data.current.uvi;
         currentUviEl.textContent = currentUvi
+
+        var lat = data.coord.lat
+        var lon = data.coord.lon
 
         for (i = 0; i < 5; i++) {
             console.log(data.daily[i])
