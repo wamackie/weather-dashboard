@@ -14,11 +14,19 @@ var weeklyHumEl = document.getElementById('current-humidity')
 var weeklyUviEl = document.getElementById('current-uvi')
 
 var weeklyWeatherContainer = document.getElementById('weekly-weather')
+var pastSearchContainer = document.getElementById('past-searches')
 
 function getInputValue(){
   var userInput = document.querySelector('#myInput').value
   console.log(userInput)
-  
+
+  var searchList = document.createElement('ul')
+   if (getInputValue){
+     //add <li>userInput</li> as item within searchList
+     add(userInput)
+   }
+  pastSearchContainer.append(searchList)
+
 
   var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${userInput}&appid=${apiKey}&units=imperial`
     fetch(apiUrl)
