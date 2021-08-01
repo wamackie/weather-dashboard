@@ -1,5 +1,5 @@
 var apiKey = '871609c38c37e30a4a9d514a96883f59'
-var city = 'portland'
+var city = ''
 var input = document.getElementById('myInput')
 var test
 //current day DOM elements
@@ -14,9 +14,11 @@ var weeklyHumEl = document.getElementById('current-humidity')
 var weeklyUviEl = document.getElementById('current-uvi')
 
 var weeklyWeatherContainer = document.getElementById('weekly-weather')
+
 function getInputValue(){
   var userInput = document.querySelector('#myInput').value
   console.log(userInput)
+  
 
   var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${userInput}&appid=${apiKey}&units=imperial`
     fetch(apiUrl)
