@@ -16,31 +16,52 @@ var weeklyUviEl = document.getElementById('current-uvi')
 var weeklyWeatherContainer = document.getElementById('weekly-weather')
 var pastSearchContainer = document.getElementById('past-searches')
 
-function getInputValue(){
-  var userInput = document.querySelector('#myInput').value
-  console.log(userInput)
+var entry = document.createElement('li')
 
-  var searchList = document.createElement('ul')
-   if (getInputValue){
-     //add <li>userInput</li> as item within searchList
-     add(userInput)
-   }
-  pastSearchContainer.append(searchList)
+var pastSearches = {}
+
+//clear past search
+function clearSearch (){
+  var pastSearches 
+}
+
+function pastSearchDisplay (){
+  //clearSearch()
+  for (var search in pastSearches){
+    console.log(search)
+    var pastSearchButton = document.createElement('button')
+    //add click functionality getInputValue(button text)
+    pastSearchButton.setAttribute ('content', search);
+    pastSearchContainer.append(pastSearchButton)
+  } 
+}
+
+function getInputValue(pastSearch){
+  //ckearSearch()
+  if(pastSearch){userInput = pastSearch}
+  else{
+  var userInput = document.querySelector('#myInput').value}
+
+  pastSearches[userInput]=(userInput);
+
+  // var searchList = document.createElement('ul')
+  //  if (getInputValue){
+  //    document.createElement('li')
+  //    add(userInput)
+  //  }
+  // pastSearchContainer.append(searchList)
 
 
   var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${userInput}&appid=${apiKey}&units=imperial`
     fetch(apiUrl)
       .then(function (response) {
-        console.log(response.status);
         //  Conditional for the the response.status.
         if (response.status !== 200) {
           // Place the response.status on the page.
-          console.log(response.status)
         }
         return response.json();
       })
       .then(function (data1) {
-        console.log(data1);
         test = data1
 
         var currentTemp = data1.main.temp
@@ -58,24 +79,18 @@ function getInputValue(){
           var apiUrl2 = `https:api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`
             fetch(apiUrl2)
             .then(function (response) {
-              console.log(response.status);
               //  Conditional for the the response.status.
               if (response.status !== 200) {
                 // Place the response.status on the page.
-                console.log(response.status)
               }
               return response.json();
             })
               .then(function (data2) {
-                console.log(data2);
                 var currentUvi = data2.current.uvi
                 currentUviEl.textContent = currentUvi
 
           //console.log(lat,lon)
           for (var i = 0; i < 5; i++) {
-
-            //console.log(data.daily[i])
-            console.log(data2.daily[i])
             // create new element
             var cardEl = document.createElement('div')
             // give the new element content
@@ -85,7 +100,6 @@ function getInputValue(){
             <span>${data2["daily"][i].wind_speed}</span>
             <span>${data2["daily"][i].humidity}</span>
             <span>${data2["daily"][i].uvi}</span>
-            <img src="the address of the weather img" />
             `;
 
             // put the new element on the page
@@ -95,7 +109,9 @@ function getInputValue(){
         }
         secondCall()
       });
+    pastSearchDisplay();
   }
 
 
 
+//<img src="the address of the weather img" />
