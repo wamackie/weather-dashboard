@@ -96,11 +96,12 @@ function getInputValue(pastSearch){
             var cardEl = document.createElement('div')
             // give the new element content
             cardEl.innerHTML = `
-            <h2>${moment().add((i+1),'d').format('l')}</h2>
-            <p>${data2["daily"][i].temp.day}</p>
-            <p>${data2["daily"][i].wind_speed}</p>
-            <p>${data2["daily"][i].humidity}</p>
-            <p>${data2["daily"][i].uvi}</p>
+            <h4>${moment().add((i+1),'d').format('dddd')}</h4>
+            <h4>${moment().add((i+1),'d').format('l')}</h4>
+            <p>Temperature: ${data2["daily"][i].temp.day}</p>
+            <p>Wind Speed: ${data2["daily"][i].wind_speed}</p>
+            <p>Humidity: ${data2["daily"][i].humidity}</p>
+            <p>UV Index: ${data2["daily"][i].uvi}</p>
             `;
             console.log(data2)
             console.log(data1)

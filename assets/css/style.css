@@ -11,17 +11,23 @@ header {
     background: blue;
 }
 
+p {
+    margin:0;
+    padding:0;
+    font-size:16px;
+}
+
 .row {
     margin: 12px 6px 0 6px;
 }
 
-h1, h2 {
+h1, h2, h3 {
     font-weight: bold;
     width: auto;
 }
 
 button {
-    width: 85%;
+    width: 40%;
     margin-top: 10px;
 }
 
