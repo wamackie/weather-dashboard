@@ -37,7 +37,7 @@ function pastSearchDisplay (){
 }
 
 function getInputValue(pastSearch){
-  //ckearSearch()
+  clearSearch()
   if(pastSearch){userInput = pastSearch}
   else{
   var userInput = document.querySelector('#myInput').value}
@@ -62,7 +62,8 @@ function getInputValue(pastSearch){
         return response.json();
       })
       .then(function (data1) {
-        test = data1
+        //test = data1
+        console.log(data1)
 
         var currentTemp = data1.main.temp
         currentTempEl.textContent = currentTemp
@@ -96,11 +97,13 @@ function getInputValue(pastSearch){
             // give the new element content
             cardEl.innerHTML = `
             <h2>${moment().add((i+1),'d').format('l')}</h2>
-            <span>${data2["daily"][i].temp.day}</span>
-            <span>${data2["daily"][i].wind_speed}</span>
-            <span>${data2["daily"][i].humidity}</span>
-            <span>${data2["daily"][i].uvi}</span>
+            <p>${data2["daily"][i].temp.day}</p>
+            <p>${data2["daily"][i].wind_speed}</p>
+            <p>${data2["daily"][i].humidity}</p>
+            <p>${data2["daily"][i].uvi}</p>
             `;
+            console.log(data2)
+            console.log(data1)
 
             // put the new element on the page
             weeklyWeatherContainer.append(cardEl)
