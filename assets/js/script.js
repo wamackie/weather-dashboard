@@ -32,11 +32,13 @@ function pastSearchDisplay (){
     var pastSearchButton = document.createElement('button')
     //add click functionality getInputValue(button text)
     pastSearchButton.setAttribute ('content', search);
+    pastSearchButton.textContent = search;
     pastSearchContainer.append(pastSearchButton)
   } 
 }
 
 function getInputValue(pastSearch){
+  document.getElementById("current-weather").style.visibility = "visible";
   clearSearch()
   if(pastSearch){userInput = pastSearch}
   else{
@@ -77,7 +79,7 @@ function getInputValue(pastSearch){
         function secondCall(lat,lon){
           var lat = data1.coord.lat
           var lon = data1.coord.lon
-          var apiUrl2 = `https:api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`
+          var apiUrl2 = `https:api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`
             fetch(apiUrl2)
             .then(function (response) {
               //  Conditional for the the response.status.
@@ -93,15 +95,15 @@ function getInputValue(pastSearch){
           //console.log(lat,lon)
           for (var i = 0; i < 5; i++) {
             // create new element
-            var cardEl = document.createElement('div')
+            var cardEl = document.createElement('div'); cardEl.className='weatherBox'
             // give the new element content
             cardEl.innerHTML = `
             <h4>${moment().add((i+1),'d').format('dddd')}</h4>
             <h4>${moment().add((i+1),'d').format('l')}</h4>
-            <p>Temperature: ${data2["daily"][i].temp.day}</p>
-            <p>Wind Speed: ${data2["daily"][i].wind_speed}</p>
-            <p>Humidity: ${data2["daily"][i].humidity}</p>
-            <p>UV Index: ${data2["daily"][i].uvi}</p>
+            <p id=pBox>Temperature: ${data2["daily"][i].temp.day}</p>
+            <p id=pBox>Wind Speed: ${data2["daily"][i].wind_speed}</p>
+            <p id=pBox>Humidity: ${data2["daily"][i].humidity}</p>
+            <p id=pBox>UV Index: ${data2["daily"][i].uvi}</p>
             `;
             console.log(data2)
             console.log(data1)
