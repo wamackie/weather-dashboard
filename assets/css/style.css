@@ -8,27 +8,51 @@
 header {
     text-align: center;
     color: white;
-    background: blue;
+    background: linear-gradient(to right, blue, rgb(8,6,74));
+}
+
+p {
+    margin:0;
+    padding:0;
+    font-size:16px;
 }
 
 .row {
     margin: 12px 6px 0 6px;
 }
 
-h1, h2 {
+h1, h2, h3 {
     font-weight: bold;
     width: auto;
 }
 
 button {
-    width: 85%;
+    width: 60%;
+    height: 20%;
     margin-top: 10px;
 }
 
 #current-weather {
     border: 2px solid black;
+    visibility: hidden;
+}
+
+#current-weather2 {
+    visibility: visible;
 }
 
 #weekly-weather {
-    float: left;
+    display: flex; 
+    justify-content: space-evenly
+}
+
+.weatherBox {
+    color: white;
+    border: 2px solid black;
+    background-color: rgb(40, 40, 60);
+    padding: 2px;
+}
+
+#pBox {
+    padding: 5px;
 }
