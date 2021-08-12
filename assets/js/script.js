@@ -28,6 +28,7 @@ function clearSearch (){
 function pastSearchDisplay (){
   //clearSearch()
   for (var search in pastSearches){
+    weeklyWeatherContainer.textContent = '';
     console.log(search)
     var pastSearchButton = document.createElement('button')
     //add click functionality getInputValue(button text)
@@ -35,6 +36,7 @@ function pastSearchDisplay (){
     pastSearchButton.textContent = search;
     pastSearchContainer.append(pastSearchButton)
   } 
+  
 }
 
 function getInputValue(pastSearch){
