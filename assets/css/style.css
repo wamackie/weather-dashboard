@@ -55,7 +55,7 @@ button {
 .weatherBox {
     color: white;
     border: 2px solid black;
-    background-color: rgb(55, 58, 73);
+    background-color: rgb(59, 64, 87);
     padding: 10px;
     width: 100%;
 }
@@ -67,21 +67,49 @@ p.label {
     text-shadow: 2px 2px black;
     background: linear-gradient(to right, blue, rgb(8,6,74));
     width: 150px;
+    box-shadow: 2px 2px 1px black;
+    border-radius: 8px;
+    margin-bottom: 3px;
 }
 
 #pBox {
     padding: 5px;
 }
 
+h2#city-name {
+    border-bottom: 1px solid black;
+}
+
+p#current-temp {
+    margin-left: 20px;
+}
+
+p#current-wind {
+    margin-left: 20px;
+}
+
+p#current-humidity {
+    margin-left: 20px;
+}
+
 p#current-uvi {
-    padding: 2px;
+    padding: 5px;
     color: white;
-    text-shadow: 2px 2px black;
-    width: 40px;
+    text-shadow: 2px 2px 1px black, -0.5px -0.5px 1px black, 0.5px -0.5px 1px black, -0.5px 0.5px 1px black;
+    width: 50px;
     box-shadow: 2px 2px 1px black;
+    border-radius: 8px;
+    margin-left: 14px;
 }
 
 div#current-weather.col-md-9 {
     padding: 5px;
     box-shadow: 0px 0px 5px black;
+    border-radius: 8px;
+}
+
+h2#city-name {
+    text-shadow: 
+    1px 1px 2px rgba(255, 255, 0, 0.363),
+    3px 3px 1px rgba(0, 0, 255, 0.205);
 }

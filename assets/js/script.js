@@ -7,6 +7,8 @@ var currentTempEl = document.getElementById('current-temp')
 var currentWindEl = document.getElementById('current-wind')
 var currentHumEl = document.getElementById('current-humidity')
 var currentUviEl = document.getElementById('current-uvi')
+var currentCityEl = document.getElementById('city-name')
+var currentDateEl = document.getElementById('current-date')
 //weekly forecast DOM elements
 var weeklyTempEl = document.getElementById('weekly-temperature')
 var weeklyWindEl = document.getElementById('current-wind')
@@ -70,6 +72,13 @@ function getInputValue(pastSearch){
         //test = data1
         console.log(data1)
 
+        var currentDate = moment().format('MMMM Do YYYY');
+        console.log(currentDate);
+        currentDateEl.textContent = currentDate
+
+        var cityName = data1.name
+        currentCityEl.textContent = cityName
+
         var currentTemp = data1.main.temp
         currentTempEl.textContent = currentTemp
 
@@ -98,7 +107,7 @@ function getInputValue(pastSearch){
                 if (currentUviEl.textContent < 2) {
                   currentUviEl.style.backgroundColor = 'green';
                 } else if (currentUviEl.textContent > 2 && currentUviEl.textContent < 5) {
-                  currentUviEl.style.backgroundColor = 'yellow'
+                  currentUviEl.style.backgroundColor = 'orange'
                 } else if (currentUviEl.textContent > 5) {
                   currentUviEl.style.backgroundColor = 'red'
                 }
@@ -114,7 +123,7 @@ function getInputValue(pastSearch){
             cardEl.innerHTML = `
             <h4>${moment().add((i+1),'d').format('dddd')}</h4>
             <h4>${moment().add((i+1),'d').format('l')}</h4>
-            <img src=https://openweathermap.org/img/w/${data1.weather[0].icon}.png alt="icon"></img>
+            <img src=https://openweathermap.org/img/w/${data2["daily"][i].weather[0].icon}.png alt="icon"></img>
             <p id=pBox>Temperature: ${data2["daily"][i].temp.day}</p>
             <p id=pBox>Wind Speed: ${data2["daily"][i].wind_speed}</p>
             <p id=pBox>Humidity: ${data2["daily"][i].humidity}</p>
@@ -136,3 +145,4 @@ function getInputValue(pastSearch){
 
 
 //<img src="the address of the weather img" />
+//<img src=https://openweathermap.org/img/w/${data1.weather[0].icon}.png alt="icon"></img>
