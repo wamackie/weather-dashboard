@@ -95,14 +95,26 @@ function getInputValue(pastSearch){
                 var currentUvi = data2.current.uvi
                 currentUviEl.textContent = currentUvi
 
+                if (currentUviEl.textContent < 2) {
+                  currentUviEl.style.backgroundColor = 'green';
+                } else if (currentUviEl.textContent > 2 && currentUviEl.textContent < 5) {
+                  currentUviEl.style.backgroundColor = 'yellow'
+                } else if (currentUviEl.textContent > 5) {
+                  currentUviEl.style.backgroundColor = 'red'
+                }
+              
+
+
           //console.log(lat,lon)
           for (var i = 0; i < 5; i++) {
             // create new element
             var cardEl = document.createElement('div'); cardEl.className='weatherBox'
+            console.log(data1.weather[0].icon)
             // give the new element content
             cardEl.innerHTML = `
             <h4>${moment().add((i+1),'d').format('dddd')}</h4>
             <h4>${moment().add((i+1),'d').format('l')}</h4>
+            <img src=https://openweathermap.org/img/w/${data1.weather[0].icon}.png alt="icon"></img>
             <p id=pBox>Temperature: ${data2["daily"][i].temp.day}</p>
             <p id=pBox>Wind Speed: ${data2["daily"][i].wind_speed}</p>
             <p id=pBox>Humidity: ${data2["daily"][i].humidity}</p>
