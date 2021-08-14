@@ -9,6 +9,7 @@ var currentHumEl = document.getElementById('current-humidity')
 var currentUviEl = document.getElementById('current-uvi')
 var currentCityEl = document.getElementById('city-name')
 var currentDateEl = document.getElementById('current-date')
+
 //weekly forecast DOM elements
 var weeklyTempEl = document.getElementById('weekly-temperature')
 var weeklyWindEl = document.getElementById('current-wind')
@@ -78,6 +79,8 @@ function getInputValue(pastSearch){
 
         var cityName = data1.name
         currentCityEl.textContent = cityName
+
+        document.getElementById("current-icon").src = `https://openweathermap.org/img/w/${data1.weather[0].icon}.png`
 
         var currentTemp = data1.main.temp
         currentTempEl.textContent = currentTemp

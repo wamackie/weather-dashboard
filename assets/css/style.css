@@ -9,6 +9,12 @@ header {
     text-align: center;
     color: white;
     background: linear-gradient(to right, blue, rgb(8,6,74));
+    border-bottom: 3px solid black;
+    margin-bottom: 30px;
+}
+
+body {
+    background-color: rgba(147, 147, 206, 0.103);
 }
 
 p {
@@ -40,6 +46,7 @@ button {
 #current-weather {
     border: 1px solid black;
     visibility: hidden;
+    background-color: white;
 }
 
 #current-weather2 {
@@ -111,5 +118,5 @@ div#current-weather.col-md-9 {
 h2#city-name {
     text-shadow: 
     1px 1px 2px rgba(255, 255, 0, 0.363),
-    3px 3px 1px rgba(0, 0, 255, 0.205);
+    3px 3px 1px rgba(50, 50, 255, 0.205);
 }
