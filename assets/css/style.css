@@ -31,10 +31,6 @@ div#search-container.col-md-3 {
     text-align: center;
 }
 
-div#past-searches.col-md-3 {
-    text-align: center;
-}
-
 h1, h2, h3 {
     font-weight: bold;
     width: 100%;
@@ -49,6 +45,16 @@ button {
     width: 200px;
     height: 40px;
     margin-top: 10px;
+}
+
+button#searchButton {
+    margin-bottom: 25px;
+}
+
+hr.rounded {
+    width: 250px;
+    margin: auto;
+    margin-bottom: 20px;
 }
 
 #current-weather {

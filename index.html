@@ -20,9 +20,14 @@
             <div class="col-md-3" id="search-container">
                 <h2>Search for a City</h2>
                 <input type="text" placeholder="City" id="myInput">
-                <button type="button" onclick="getInputValue();">Search</button>
-
+                <button type="button" id = "searchButton" onclick="getInputValue();">Search</button>
+                <hr class="rounded">
+                <div id="past-searches">
+                    <ul>
+                    </ul>
+                </div>
             </div>
+            
             <div class="col-md-9" id="current-weather">
                 <h2 id="city-name"></h2>
                 <h3 id="current-date"></h3>
@@ -38,7 +43,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3" id="past-searches">
+            <div class="col-md-3">
                 <ul>
                 </ul>
             </div>
