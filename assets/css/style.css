@@ -27,19 +27,27 @@ p {
     margin: 12px 6px 0 6px;
 }
 
+div#search-container.col-md-3 {
+    text-align: center;
+}
+
+div#past-searches.col-md-3 {
+    text-align: center;
+}
+
 h1, h2, h3 {
     font-weight: bold;
     width: 100%;
 }
 
 input#myInput {
-    width: 60%;
-    height: 25%;
+    width: 200px;
+    height: 40px;
 }
 
 button {
-    width: 60%;
-    height: 25%;
+    width: 200px;
+    height: 40px;
     margin-top: 10px;
 }
 
