@@ -1,4 +1,4 @@
 # weather-dashboard
 
 ## Website
-https://wamackie8456.github.io/weather-dashboard/
+https://wamackie.github.io/weather-dashboard/
