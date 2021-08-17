@@ -94,12 +94,12 @@ function getInputValue(pastSearch){
         function secondCall(lat,lon){
           var lat = data1.coord.lat
           var lon = data1.coord.lon
-          var apiUrl2 = `https:api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`
+          var apiUrl2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`
             fetch(apiUrl2)
             .then(function (response) {
               //  Conditional for the the response.status.
               if (response.status !== 200) {
-                // Place the response.status on the page.
+                console.log(response)
               }
               return response.json();
             })
