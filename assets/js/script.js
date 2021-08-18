@@ -86,13 +86,13 @@ function getInputValue(pastSearch){
         document.getElementById("current-icon").src = `https://openweathermap.org/img/w/${data1.weather[0].icon}.png`
 
         var currentTemp = data1.main.temp
-        currentTempEl.textContent = currentTemp
+        currentTempEl.textContent = currentTemp + '°F'
 
         var currentWind = data1.wind.speed
-        currentWindEl.textContent = currentWind
+        currentWindEl.textContent = currentWind + ' MPH'
 
         var currentHum = data1.main.humidity
-        currentHumEl.textContent = currentHum
+        currentHumEl.textContent = currentHum + '%'
 
         function secondCall(lat,lon){
           var lat = data1.coord.lat
@@ -130,10 +130,9 @@ function getInputValue(pastSearch){
             <h4>${moment().add((i+1),'d').format('dddd')}</h4>
             <h4>${moment().add((i+1),'d').format('l')}</h4>
             <img src=https://openweathermap.org/img/w/${data2["daily"][i].weather[0].icon}.png alt="icon"></img>
-            <p id=pBox>Temperature: ${data2["daily"][i].temp.day}</p>
-            <p id=pBox>Wind Speed: ${data2["daily"][i].wind_speed}</p>
-            <p id=pBox>Humidity: ${data2["daily"][i].humidity}</p>
-            <p id=pBox>UV Index: ${data2["daily"][i].uvi}</p>
+            <p id=pBox>Temperature: ${data2["daily"][i].temp.day}°F</p>
+            <p id=pBox>Wind Speed: ${data2["daily"][i].wind_speed} MPH</p>
+            <p id=pBox>Humidity: ${data2["daily"][i].humidity}%</p>
             `;
             console.log(data2)
             console.log(data1)
