@@ -42,6 +42,8 @@ input#myInput {
 }
 
 button {
+    display: block;
+    margin: auto;
     width: 200px;
     height: 40px;
     margin-top: 10px;
