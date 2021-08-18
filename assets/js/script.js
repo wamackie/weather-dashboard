@@ -37,6 +37,8 @@ function pastSearchDisplay (){
     var pastSearchButton = document.createElement('button')
     //add click functionality getInputValue(button text)
     pastSearchButton.setAttribute ('content', search);
+    pastSearchButton.classList.add('clickable');
+
     pastSearchButton.textContent = search;
     pastSearchContainer.append(pastSearchButton)
   } 
@@ -49,6 +51,7 @@ function getInputValue(pastSearch){
   if(pastSearch){userInput = pastSearch}
   else{
   var userInput = document.querySelector('#myInput').value}
+  document.querySelector('#myInput').value = '';
 
   pastSearches[userInput]=(userInput);
 
@@ -145,6 +148,13 @@ function getInputValue(pastSearch){
     pastSearchDisplay();
   }
 
+  function searchSaved(event) {
+    searchTarget = event.target;
+    console.log(searchTarget)
+    getInputValue(searchTarget.getAttribute('content'))
+  }
+
+  pastSearchContainer.addEventListener('click', searchSaved)
 
 
 //<img src="the address of the weather img" />
