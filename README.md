@@ -1,7 +1,7 @@
 # Weather Dashboard
 
 ## Description
-Weather Dashboard is a web application that takes a city search and returns that city's weather forecast. The city searched is run through the Open Weather Map API to gather the data. The data includes temperature, wind, humidity, UV index, and an icon representative of the weather. City searches are saved as buttons. These buttons can be clicked to rerun the search.
+Weather Dashboard is a web application used to find the weather forecast for various cities. Open Weather Map API is used to gather data for temperature, wind, humidity, UV index, and icons indicating weather conditions. The UV index changes color based on favorable, moderate, or severe conditions. City searches are saved as buttons that can be clicked to rerun a search.
 
 ## Built With
 * HTML
